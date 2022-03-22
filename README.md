@@ -1,4 +1,6 @@
-Pentru a explica cum functioneaza o stiva folosind 2 cozi, ne vom folosi de un exemplu vizual. 
-Este clar ca avem doua variante de implementare : fie consideram varful stivei inceputul cozii, caz in care operatiile de pop si top le avem by default, 
-cu complexitate O(1) dar operatia de push devine mai dificila, fie putem considera capatul cozii ca fiind varful stivei, caz in care operatia de push 
-are complexitate O(1), iar celelalte operatii devin mai dificile.
+ Este clar ca avem doua variante de implementare : fie consideram varful stivei inceputul cozii "principale", caz in care operatiile de pop si top le avem by default, 
+cu complexitate O(1) dar operatia de push devine mai dificila, fie putem considera capatul cozii "principale" ca fiind varful stivei, caz in care operatia de push 
+are complexitate O(1), iar celelalte operatii devin mai dificile, fiind posibile prin prisma cozii "auxiliare" .
+
+
+Pentru acest proiect am considerat prima varianta de implementare. Ca atare, ramane de explicat cum se realizeaza operatia de push/enqueue si complexitatea ei in acest caz. Pentru inceput introducem elementul corespunzator operatiei de push/enqueue (pe care il numim x) in coada auxiliara. Apoi luam toate elementele care se afla deja in coada principala, le eliminam si le introducem in coada auxiliara. In urma acestei operatii coada auxiliara reprezinta coada principala de la pasul precedent + elementul x adaugat in fata cozii, simuland astfel o stiva. Se observa ca pentru a adauga un element in aceasta stiva, sunt necesare n operatii de pop/dequeue din coada principala, n operatii de push/enqueue in coada auxiliara, si o atribuire a doua cozi, deci complexitatea operatiei de push este aproximativ O(n).
